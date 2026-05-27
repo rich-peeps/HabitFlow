@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.env
+.env.*
+
+# Pipenv / virtualenv
+Pipfile.lock
+.venv/
+venv/
+.env/
+*.sqlite3
+
+# Node / React
+node_modules/
+dist/
+build/
+.npmrc
+
+# MacOS
+.DS_Store
