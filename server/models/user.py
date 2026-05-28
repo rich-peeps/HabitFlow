@@ -1,9 +1,5 @@
 from sqlalchemy.ext.hybrid import hybrid_property
-from flask_bcrypt import Bcrypt
-
-from . import db
-
-bcrypt = Bcrypt()  # will be initialized in app factory
+from . import db, bcrypt
 
 class User(db.Model):
     __tablename__ = "users"

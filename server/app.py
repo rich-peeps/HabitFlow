@@ -1,15 +1,11 @@
 from flask import Flask
 from flask_migrate import Migrate
-from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 
 from .config import config_map
-from .models import db
-from .routes.auth import auth_bp
-from .routes.habits import habits_bp
+from .models import db, bcrypt
 
-bcrypt = Bcrypt()
 jwt = JWTManager()
 migrate = Migrate()
 
@@ -24,6 +20,8 @@ def create_app(env_name="development"):
     jwt.init_app(app)
     migrate.init_app(app, db)
 
+    from .routes.auth import auth_bp
+    from .routes.habits import habits_bp
 
     app.register_blueprint(auth_bp, url_prefix="/api/auth")
     app.register_blueprint(habits_bp, url_prefix="/api")

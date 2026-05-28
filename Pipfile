@@ -9,10 +9,10 @@ flask-sqlalchemy = "*"
 flask-migrate = "*"
 flask-bcrypt = "*"
 flask-jwt-extended = "*"
-python-dotenv = "*"
 flask-cors = "*"
 psycopg2-binary = "*"
 marshmallow = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
