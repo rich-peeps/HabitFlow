@@ -14,7 +14,6 @@ export async function apiRequest(path, options = {}) {
   return data;
 }
 
-// auth
 export const signup = (body) =>
   apiRequest('/api/auth/signup', { method: 'POST', body: JSON.stringify(body) });
 
@@ -23,9 +22,31 @@ export const login = (body) =>
 
 export const getMe = () => apiRequest('/api/auth/me');
 
-// habits
 export const getHabits = () => apiRequest('/api/habits');
 export const createHabit = (body) =>
   apiRequest('/api/habits', { method: 'POST', body: JSON.stringify(body) });
 
 export const getToday = () => apiRequest('/api/today');
+
+export const updateHabit = (id, body) =>
+  apiRequest(`/api/habits/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify(body),
+  });
+
+export const deleteHabit = (id) =>
+  apiRequest(`/api/habits/${id}`, {
+    method: 'DELETE',
+  });
+
+  export const createHabitEntry = (habitId, body) =>
+  apiRequest(`/api/habits/${habitId}/entries`, {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+
+export const updateHabitEntry = (entryId, body) =>
+  apiRequest(`/api/entries/${entryId}`, {
+    method: 'PATCH',
+    body: JSON.stringify(body),
+  });
