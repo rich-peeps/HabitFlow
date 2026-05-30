@@ -44,9 +44,32 @@ export default function HabitsPage() {
       <h1>Your Habits</h1>
       {error && <p style={{ color: 'red' }}>{String(error)}</p>}
       <form onSubmit={handleSubmit}>
-        <input name="name" value={form.name} onChange={handleChange} placeholder="Habit name" />
-        <input name="category" value={form.category} onChange={handleChange} placeholder="Category" />
-        <input name="target_per_week" type="number" value={form.target_per_week} onChange={handleChange} />
+        <label>
+            Habit Name
+            <input
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                />
+        </label>
+        <label>
+            Category
+            <input
+                name="category"
+                value={form.category}
+                onChange={handleChange}
+                />
+        </label>
+        <label>
+            Target times per week
+            <input
+                name="target_per_week"
+                type="number"
+                value={form.target_per_week}
+                onChange={handleChange}
+                min="0"
+                />
+        </label>
         <button type="submit">Add habit</button>
       </form>
       <ul>
